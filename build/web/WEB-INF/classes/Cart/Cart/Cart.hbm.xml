@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="Cart.Cart.Cart" table="bookstore.cart">
+      <id name="cartid">
+          <generator class="native"/>
+      </id>
+      <property name="userid"/>
+      <property name="bookid"/>
+      <property name="number"/>
+      <property name="status"/>
+  </class>
+</hibernate-mapping>

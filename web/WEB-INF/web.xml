@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml,classpath:User/webService/cxf.xml</param-value>
+    </context-param>
+    
+    <servlet>    
+        <servlet-name>CXFServlet</servlet-name>    
+        <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>    
+        <load-on-startup>2</load-on-startup>    
+    </servlet> 
+    <servlet-mapping>    
+        <servlet-name>CXFServlet</servlet-name>    
+        <url-pattern>/soapWebService/*</url-pattern>    
+    </servlet-mapping>
+   
+   
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!--<servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>*.htm</url-pattern>
+    </servlet-mapping>-->
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <!--<bean>
+        <security-domain>java:/jaas2/Bookstore</security-domain>
+        <enable-websockets>true</enable-websockets>
+    </bean>-->
+    <welcome-file-list>
+        <welcome-file>/WEB-INF/index.jsp</welcome-file>
+    </welcome-file-list>
+    <ejb-local-ref>
+        <ejb-ref-name>userService</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <ejb-link>#UserService</ejb-link>
+    </ejb-local-ref>
+     <ejb-local-ref>
+        <ejb-ref-name>cartService</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <ejb-link>#CartService</ejb-link>
+    </ejb-local-ref>
+    <!--
+    <security-constraint>	
+	<web-resource-collection>
+	    <web-resource-name>OPENSSL</web-resource-name>
+	    <url-pattern>/UserLogin</url-pattern>
+            <url-pattern>/JumpMyCart</url-pattern>
+            <url-pattern>/JumpMyOrder</url-pattern>
+	</web-resource-collection>
+	<user-data-constraint>
+	    <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+	</user-data-constraint>
+    </security-constraint>
+    -->
+    <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>BookStore</web-resource-name>
+      <url-pattern>/Manager/*</url-pattern>
+    </web-resource-collection>
+
+    <auth-constraint>
+      <role-name>manager</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <security-role>
+    <role-name>manager</role-name>
+  </security-role>
+  
+   <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/WEB-INF/Manager/ManagerLogin.jsp</form-login-page>
+            <form-error-page>/WEB-INF/Manager/ManagerLogin.jsp</form-error-page>
+        </form-login-config>
+   </login-config>
+   
+</web-app>

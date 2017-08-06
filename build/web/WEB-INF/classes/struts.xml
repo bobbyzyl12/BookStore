@@ -1,0 +1,140 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <constant name="struts.action.excludePattern" value="/websocket/chat"></constant>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        <!-- User Register -->
+        <action name="UserRegister" class="UserAction" method="UserRegister">
+            <result name="success">/WEB-INF/index.jsp</result>
+            <result name="error">/WEB-INF/User/UserRegister.jsp</result>
+        </action>
+        
+        <!-- User Login -->
+        <action name="UserLogin" class="UserAction" method="UserLogin">
+            <result name="success">/WEB-INF/index.jsp</result>
+            <result name="error">/WEB-INF/User/UserLogin.jsp</result>
+            <result name="nouser">/WEB-INF/User/UserLogin.jsp?cond=nouser</result>
+        </action>
+        
+        <!-- Jump To Actions -->
+        <action name="JumpToIndex" class="UserAction" method="JumpToIndex">
+            <result name="success">/WEB-INF/index.jsp</result>
+        </action>
+        
+        <action name="JumpUserLogin" class="UserAction" method="JumpUserLogin">
+            <result name="success">/WEB-INF/User/UserLogin.jsp</result>
+        </action>
+        
+        <action name="JumpUserRegister" class="UserAction" method="JumpUserRegister">
+            <result name="success">/WEB-INF/User/UserRegister.jsp</result>
+        </action>
+        
+        <action name="JumpBookAffair" class="ManagerAction" method="JumpBookAffair">
+            <result name="success">/WEB-INF/Manager/BookAffair.jsp</result>
+        </action>
+        
+        <action name="JumpUserAffair" class="UserAction" method="JumpUserAffair">
+            <result name="success">/WEB-INF/Manager/UserAffair.jsp</result>
+        </action>
+        
+        <action name="JumpManagerLogin" class="ManagerAction" method="JumpManagerLogin">
+            <result name="success">/WEB-INF/User/ManagerLogin.jsp</result>
+        </action>
+        
+        <action name="JumpBooks" class="BookAction" method="JumpBooks">
+            <result name="success">/WEB-INF/BookStore/Books.jsp</result>
+        </action>
+        
+        <action name="JumpMyCart" class="CartAction" method="JumpMyCart">
+            <result name="success">/WEB-INF/BookStore/MyCart.jsp</result>
+        </action>
+        
+        <action name="JumpMyOrder" class="OrderAction" method="JumpMyOrder">
+            <result name="success">/WEB-INF/BookStore/MyOrder.jsp</result>
+            <result name="error">/WEB-INF/User/UserLogin.jsp</result>
+        </action>
+        
+         <action name="JumpCartDetail" class="CartAction" method="JumpCartDetail">
+            <result name="success">/WEB-INF/BookStore/CartDetail.jsp</result>
+        </action>
+        
+        <action name="JumpChatRoom" class="UserAction" method="JumpChatRoom">
+            <result name="success">/WEB-INF/BookStore/ChatRoom.jsp</result>
+        </action>
+        
+        <action name="JumpLuceneSearch" class="BookAction" method="JumpLuceneSearch">
+            <result name="success">/WEB-INF/BookStore/LuceneSearch.jsp</result>
+        </action>
+        
+        <!-- Manager Login -->
+        <action name="ManagerLogin" class="ManagerAction" method="ManagerLogin">
+            <result name="success">/WEB-INF/Manager/BookAffair.jsp</result>
+            <result name="error">/WEB-INF/User/ManagerLogin.jsp</result>
+        </action>
+        
+        <!-- Add Book -->
+        <action name="AddBook" class="BookAction" method="AddBook">
+            <result name="success">/WEB-INF/Manager/BookAffair.jsp</result>
+            <result name="error">/WEB-INF/Manager/BookAffair.jsp?cond=error</result>
+        </action>
+        
+        <!-- Search Book -->
+        <action name="SearchBooks" class="BookAction" method="SearchBooks">
+            <result name="manager">/WEB-INF/Manager/BookAffair.jsp</result>
+            <result name="user">/WEB-INF/BookStore/Books.jsp</result>
+        </action>
+        
+         <action name="CreateBookIndex" class="BookAction" method="CreateBookIndex">
+            <result name="success">/WEB-INF/Manager/BookAffair.jsp</result>
+        </action>
+        
+        <action name="LuceneSearch" class="BookAction" method="LuceneSearch">
+            <result name="success">/WEB-INF/BookStore/LuceneSearch.jsp</result>
+        </action>
+        
+        <!--Jump to Book Detail -->
+         <action name="JumpBookDetailM" class="BookAction" method="JumpBookDetailM">
+             <result name="success">/WEB-INF/Manager/BookDetailM.jsp</result>
+            <result name="error">/WEB-INF/Manager/BookAffair.jsp</result>
+        </action>
+        
+        <action name="JumpBookDetail" class="BookAction" method="JumpBookDetail">
+             <result name="success">/WEB-INF/BookStore/BookDetail.jsp</result>
+            <result name="error">/WEB-INF/BookStore/BookStore.jsp</result>
+        </action>
+        
+          <action name="AddBookToCart" class="CartAction" method="AddBookToCart">
+             <result name="success">/WEB-INF/BookStore/Books.jsp</result>
+            <result name="error">/WEB-INF/BookStore/BookDetail.jsp</result>
+        </action>
+        
+        <action name="EditBookToCart" class="CartAction" method="EditBookToCart">
+             <result name="success">/WEB-INF/BookStore/Books.jsp</result>
+        </action>
+         <action name="PayCart" class="CartAction" method="PayCart">
+             <result name="success">/WEB-INF/BookStore/Books.jsp</result>
+        </action>
+        <action name="DeleteCart" class="CartAction" method="DeleteCart">
+             <result name="success">/WEB-INF/BookStore/Books.jsp</result>
+        </action>
+        
+        
+        <!--Order -->
+        <action name="AddOrder" class="OrderAction" method="AddOrder">
+            <result name="success">/WEB-INF/BookStore/Books.jsp</result>
+        </action>
+        
+        <action name="PayOrder" class="OrderAction" method="PayOrder">
+            <result name="success">/WEB-INF/BookStore/Books.jsp</result>
+        </action>
+        
+        <!--Test Ajax -->
+        <action name="TestAjax" class="BookAction" method="TestAjax">
+        </action>
+        
+        <action name="BookDetail" class="BookAction" method="BookDetail">
+        </action>
+    </package>
+</struts>

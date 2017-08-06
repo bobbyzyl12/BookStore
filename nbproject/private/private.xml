@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="3">
+        <file>
+            <url>src/java/User/UserAction.java</url>
+            <bookmark id="2">
+                <name/>
+                <line>88</line>
+                <key/>
+            </bookmark>
+            <bookmark id="3">
+                <name/>
+                <line>173</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/java/Order/OrderAction.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>17</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/BookStore/BookStore/web/WEB-INF/BookStore/LuceneSearch.jsp</file>
+            <file>file:/D:/BookStore/BookStore/src/java/struts.xml</file>
+            <file>file:/D:/BookStore/BookStore/src/java/Book/BookService.java</file>
+            <file>file:/D:/BookStore/BookStore/web/WEB-INF/BookStore/BookDetail.jsp</file>
+            <file>file:/D:/BookStore/BookStore/src/java/Book/BookAction.java</file>
+            <file>file:/D:/BookStore/BookStore/web/WEB-INF/BookStore/Books.jsp</file>
+        </group>
+    </open-files>
+</project-private>
